@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stress-Relief Hobbies</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background-color: #f9f6f3;
+      color: #6b5d5d;
+      overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 250, 245, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem 2rem;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+      z-index: 1000;
+      border-bottom: 2px solid #f4e8e0;
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .nav-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #d4a5a5;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #8b7e7e;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #d4a5a5;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #d4a5a5;
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      width: 100%;
+      min-height: 60%;
+      background: linear-gradient(135deg, #f9e6e6 0%, #e8dff5 50%, #d4e4e8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(212, 165, 165, 0.1);
+      border-radius: 50%;
+      top: -100px;
+      right: -100px;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: rgba(180, 167, 214, 0.1);
+      border-radius: 50%;
+      bottom: -150px;
+      left: -150px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      color: #9b8b9b;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: #8b7e7e;
+      line-height: 1.6;
+    }
+
+    /* Decorative shapes */
+    .shape {
+      position: absolute;
+      opacity: 0.3;
+    }
+
+    .shape-circle {
+      width: 60px;
+      height: 60px;
+      border: 3px solid #d4a5a5;
+      border-radius: 50%;
+    }
+
+    .shape-square {
+      width: 50px;
+      height: 50px;
+      border: 3px solid #b4a7d6;
+      border-radius: 10px;
+      transform: rotate(45deg);
+    }
+
+    /* Container */
+    .main-container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    /* Section styling */
+    section {
+      margin-bottom: 5rem;
+      scroll-margin-top: 100px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: #9b8b9b;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #d4a5a5, #b4a7d6);
+      border-radius: 2px;
+    }
+
+    .text-content {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    /* Hobby Cards */
+    .hobby-grid {
+      display: grid;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .hobby-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hobby-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #d4a5a5, #b4a7d6, #a8cfd5);
+    }
+
+    .hobby-card h3 {
+      font-size: 2rem;
+      color: #9b8b9b;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hobby-card p {
+      line-height: 1.8;
+      color: #6b5d5d;
+      margin-bottom: 1rem;
+    }
+
+    .image-placeholder {
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(135deg, #f9e6e6 0%, #e8dff5 100%);
+      border-radius: 20px;
+      margin: 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9b8b9b;
+      font-style: italic;
+      border: 2px dashed #d4a5a5;
+    }
+
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #f9e6e6 0%, #e8dff5 50%, #d4e4e8 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9b8b9b;
+      font-style: italic;
+      border: 2px dashed #d4a5a5;
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Decorative divider */
+    .divider {
+      text-align: center;
+      margin: 3rem 0;
+      position: relative;
+    }
+
+    .divider::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #d4a5a5, transparent);
+    }
+
+    .divider-icon {
+      display: inline-block;
+      background: #f9f6f3;
+      padding: 0 1rem;
+      font-size: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Contact Section */
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-icon {
+      width: 60px;
+      height: 60px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      color: #9b8b9b;
+      font-size: 1.5rem;
+    }
+
+    .contact-icon:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Quote box */
+    .quote-box {
+      background: linear-gradient(135deg, #f9e6e6 0%, #e8dff5 100%);
+      padding: 2rem;
+      border-radius: 20px;
+      border-left: 5px solid #d4a5a5;
+      margin: 2rem 0;
+      font-style: italic;
+      color: #6b5d5d;
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      background: white;
+      padding: 2rem;
+      text-align: center;
+      color: #8b7e7e;
+      border-top: 2px solid #f4e8e0;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .nav-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .text-content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Navigation -->
+  <nav>
+   <div class="nav-content"><a href="#home" class="nav-brand" id="site-title-nav">Stress-Relief Hobbies</a>
+    <div class="nav-links"><a href="#home">Home</a> <a href="#about">About</a> <a href="#hobbies">Hobbies</a> <a href="#stress">Stress Relief</a> <a href="#gallery">Gallery</a> <a href="#thoughts">Thoughts</a> <a href="#contact">Contact</a>
+    </div>
+   </div>
+  </nav><!-- Hero Section -->
+  <section id="home" class="hero">
+   <div class="shape shape-circle" style="top: 20%; left: 10%;"></div>
+   <div class="shape shape-square" style="top: 60%; right: 15%;"></div>
+   <div class="hero-content">
+    <h1 id="site-title">Stress-Relief Hobbies I Do Mindlessly</h1>
+    <p id="welcome-text">A cozy collection of creative escapes that help me unwind, breathe, and find peace in the making.</p>
+   </div>
+  </section>
+  <div class="main-container"><!-- About Section -->
+   <section id="about">
+    <h2 class="section-title" id="about-title">About This Project</h2>
+    <div class="text-content">
+     <p id="about-text">This website is a personal exploration of the hobbies that have become my sanctuary during stressful times. In our fast-paced world, finding moments of calm can feel impossible. But through these simple, repetitive creative activities, I've discovered a path to mindfulness and peace. Each hobby listed here requires minimal mental effort but offers maximum therapeutic benefit—allowing my mind to wander freely while my hands stay busy. This space documents my journey with these calming crafts and celebrates the beauty of doing something just for the sake of doing it, without pressure or perfection.</p>
+    </div>
+   </section>
+   <div class="divider"><span class="divider-icon">✿</span>
+   </div><!-- Hobbies Section -->
+   <section id="hobbies">
+    <h2 class="section-title" id="hobbies-title">My Stress-Relief Hobbies</h2>
+    <div class="hobby-grid"><!-- Diamond Painting -->
+     <div class="hobby-card">
+      <h3>💎 Diamond Painting</h3>
+      <p>Diamond painting has become my evening meditation. There's something incredibly soothing about the repetitive motion of picking up tiny resin diamonds with a special pen and placing them onto a sticky canvas according to a color-coded pattern. It's like paint-by-numbers meets cross-stitch meets mosaic art.</p>
+      <div class="image-placeholder">
+       Space for diamond painting images
+      </div>
+      <p>What I love most about diamond painting is how it demands just enough attention to keep my anxious thoughts at bay, but not so much that it becomes mentally taxing. My hands move in a rhythm—pick, place, press—while I listen to podcasts or music. The satisfying snap of each diamond finding its place is oddly therapeutic.</p>
+      <p>I usually work on larger canvases over the course of several weeks. There's no rush, no deadline. Some nights I place a hundred diamonds, other nights a thousand. The project slowly reveals itself, shimmering section by shimmering section. When light hits the finished piece, it sparkles beautifully—a tangible reminder of all those quiet hours spent creating something with my own hands.</p>
+      <div class="image-placeholder">
+       Space for finished diamond art
+      </div>
+      <p>The hobby also satisfies my need for organization and completion. Each color has its own numbered packet, and I love the process of sorting and storing them. Finishing a section feels like a small victory, and completing an entire canvas is immensely satisfying without being stressful.</p>
+     </div><!-- Bead Curtain Art -->
+     <div class="hobby-card">
+      <h3>✨ Bead Curtain Art</h3>
+      <p>Creating bead curtains is a hobby I stumbled into almost by accident, but it has become one of my favorite mindless creative outlets. The process involves stringing colorful beads onto thread or fishing line in patterns or gradients, then hanging them to create flowing, decorative curtains that catch the light beautifully.</p>
+      <div class="image-placeholder">
+       Space for bead curtain work-in-progress
+      </div>
+      <p>What makes this hobby particularly calming is the repetitive nature of stringing beads combined with the gentle creative decisions about color placement. I don't follow strict patterns—instead, I let intuition guide my color choices, creating gradients that flow from one shade to another or mixing colors in ways that feel right in the moment.</p>
+      <p>The tactile experience is wonderful. Each bead slides smoothly onto the string with a soft clicking sound. I can feel the weight of the strand growing in my hands as I work. There's something hypnotic about the rhythm: select a bead, thread it on, push it down, repeat. Hours can pass without me realizing it.</p>
+      <div class="image-placeholder">
+       Space for completed bead curtains
+      </div>
+      <p>When hung in a doorway or window, bead curtains transform a space. They add color, texture, and movement. When a breeze passes through or someone walks by, they sway and chime gently. The way light filters through the beads creates beautiful color patterns on walls and floors. It's art that's both decorative and functional, and creating them helps me feel accomplished while staying completely relaxed.</p>
+     </div><!-- Crochet Canvas Art -->
+     <div class="hobby-card">
+      <h3>🧶 Crochet Canvas Art</h3>
+      <p>Crochet canvas art combines traditional crochet techniques with visual art. Instead of making scarves or blankets, I create textured wall hangings and decorative pieces by crocheting directly onto canvas frames or creating standalone crochet pieces that can be mounted and displayed.</p>
+      <div class="image-placeholder">
+       Space for crochet canvas images
+      </div>
+      <p>The beauty of this hobby lies in its forgiving nature. Unlike traditional art forms where mistakes can be difficult to fix, crochet is endlessly adjustable. If I don't like how something looks, I can simply unravel it and start again. There's no waste, no permanent errors—just yarn that can be reformed into infinite possibilities.</p>
+      <p>The rhythm of crochet is deeply meditative. My hands know the motions so well that I rarely need to look at what I'm doing. Loop the yarn, pull through, repeat. The hook becomes an extension of my fingers. I can crochet while watching movies, sitting in waiting rooms, or even during video calls. It keeps my hands busy and my mind calm.</p>
+      <div class="image-placeholder">
+       Space for crochet art pieces
+      </div>
+      <p>I especially love experimenting with different textures and stitches. Some pieces are smooth and tight, others loose and flowing. I play with color gradients, mixing yarns to create ombre effects. The finished pieces have a handmade warmth that brings coziness to any space. Each stitch represents a moment of mindfulness, and the completed artwork is a collection of thousands of tiny meditative moments woven together.</p>
+     </div><!-- Paint-By-Numbers -->
+     <div class="hobby-card">
+      <h3>🎨 Paint-By-Numbers</h3>
+      <p>Paint-by-numbers might seem childish to some, but for me, it's the perfect stress-free way to engage with painting without the pressure of creating something from scratch. Each kit comes with a pre-printed canvas marked with numbers, corresponding paints, and brushes. All I have to do is match numbers to colors and fill in the spaces.</p>
+      <div class="image-placeholder">
+       Space for paint-by-numbers in progress
+      </div>
+      <p>What I love about this hobby is how it removes all creative decision-making. I don't have to think about composition, color theory, or technique. The artwork is already designed—I'm simply bringing it to life, one numbered section at a time. This makes it perfect for evenings when I want to be creative but my brain is too tired for original thought.</p>
+      <p>The process is wonderfully methodical. I typically work through the painting by color, completing all sections of one number before moving to the next. This creates an interesting transformation—at first, the painting looks like random colored patches, but gradually, as more sections are filled in, the image emerges like magic.</p>
+      <div class="image-placeholder">
+       Space for completed paintings
+      </div>
+      <p>There's something deeply satisfying about the precision required. Staying within the lines, making sure the coverage is even, blending edges where colors meet—these small technical challenges keep me focused without being stressful. When I finish a painting, I'm always amazed at how professional it looks. It's tangible proof that I can create beautiful art, even on days when I don't feel particularly creative or capable. Each completed canvas is a reminder that sometimes following simple instructions step by step can lead to something wonderful.</p>
+     </div>
+    </div>
+   </section>
+   <div class="divider"><span class="divider-icon">❀</span>
+   </div><!-- Stress Relief Section -->
+   <section id="stress">
+    <h2 class="section-title" id="stress-title">How These Hobbies Help With Stress</h2>
+    <div class="text-content">
+     <p id="stress-text">These hobbies share a common thread: they're all repetitive, meditative, and require just enough focus to quiet an anxious mind without demanding intense concentration. When I'm stressed, my thoughts tend to spiral. These activities give my hands something to do and my mind something gentle to focus on, breaking the cycle of worry. The repetitive motions—placing diamonds, stringing beads, making stitches, filling spaces—create a rhythm that's almost hypnotic. In these moments, time seems to slow down. There are no deadlines, no pressure to create something perfect. I can make mistakes and fix them. I can work at my own pace. And most importantly, I can let my mind wander freely while my hands stay productively occupied, finding peace in the simple act of making something beautiful, one small piece at a time.</p>
+    </div>
+    <div class="quote-box">
+     "Creativity is not about producing something for others to see. Sometimes it's just about giving your mind permission to rest while your hands remember how to play."
+    </div>
+   </section><!-- Gallery Section -->
+   <section id="gallery">
+    <h2 class="section-title" id="gallery-title">Gallery</h2>
+    <div class="gallery-grid">
+     <div class="gallery-item">
+      Image 1
+     </div>
+     <div class="gallery-item">
+      Image 2
+     </div>
+     <div class="gallery-item">
+      Image 3
+     </div>
+     <div class="gallery-item">
+      Image 4
+     </div>
+     <div class="gallery-item">
+      Image 5
+     </div>
+     <div class="gallery-item">
+      Image 6
+     </div>
+     <div class="gallery-item">
+      Image 7
+     </div>
+     <div class="gallery-item">
+      Image 8
+     </div>
+    </div>
+   </section>
+   <div class="divider"><span class="divider-icon">✿</span>
+   </div><!-- Final Thoughts Section -->
+   <section id="thoughts">
+    <h2 class="section-title" id="final-title">Final Thoughts</h2>
+    <div class="text-content">
+     <p id="final-text">In a world that constantly demands our attention, productivity, and perfection, these mindless hobbies have become my gentle rebellion. They remind me that not everything needs to be optimized, monetized, or shared on social media. Sometimes the most valuable thing we can do is simply sit quietly and make something with our hands, for no reason other than the joy of making it. These hobbies have taught me that rest and creativity can coexist, that productivity doesn't always mean rushing, and that taking time to do something "mindless" is actually one of the most mindful things I can do for my mental health. If you're feeling overwhelmed, I encourage you to find your own meditative craft—something that lets your hands stay busy while your mind finds peace.</p>
+    </div>
+   </section><!-- Contact Section -->
+   <section id="contact">
+    <h2 class="section-title">Contact &amp; Credits</h2>
+    <div class="contact-icons"><a href="mailto:example@email.com" class="contact-icon" aria-label="Email">✉️</a> <a href="#" class="contact-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">📷</a> <a href="#" class="contact-icon" aria-label="Pinterest" target="_blank" rel="noopener noreferrer">📌</a> <a href="#" class="contact-icon" aria-label="Portfolio" target="_blank" rel="noopener noreferrer">🎨</a>
+    </div>
+   </section>
+  </div>
+  <footer>
+   <p>Made with love and calm hands ✿ 2024</p>
+  </footer>
+  <script>
+    const defaultConfig = {
+      site_title: "Stress-Relief Hobbies I Do Mindlessly",
+      welcome_text: "A cozy collection of creative escapes that help me unwind, breathe, and find peace in the making.",
+      about_title: "About This Project",
+      about_text: "This website is a personal exploration of the hobbies that have become my sanctuary during stressful times. In our fast-paced world, finding moments of calm can feel impossible. But through these simple, repetitive creative activities, I've discovered a path to mindfulness and peace. Each hobby listed here requires minimal mental effort but offers maximum therapeutic benefit—allowing my mind to wander freely while my hands stay busy. This space documents my journey with these calming crafts and celebrates the beauty of doing something just for the sake of doing it, without pressure or perfection.",
+      hobbies_title: "My Stress-Relief Hobbies",
+      stress_title: "How These Hobbies Help With Stress",
+      stress_text: "These hobbies share a common thread: they're all repetitive, meditative, and require just enough focus to quiet an anxious mind without demanding intense concentration. When I'm stressed, my thoughts tend to spiral. These activities give my hands something to do and my mind something gentle to focus on, breaking the cycle of worry. The repetitive motions—placing diamonds, stringing beads, making stitches, filling spaces—create a rhythm that's almost hypnotic. In these moments, time seems to slow down. There are no deadlines, no pressure to create something perfect. I can make mistakes and fix them. I can work at my own pace. And most importantly, I can let my mind wander freely while my hands stay productively occupied, finding peace in the simple act of making something beautiful, one small piece at a time.",
+      gallery_title: "Gallery",
+      final_title: "Final Thoughts",
+      final_text: "In a world that constantly demands our attention, productivity, and perfection, these mindless hobbies have become my gentle rebellion. They remind me that not everything needs to be optimized, monetized, or shared on social media. Sometimes the most valuable thing we can do is simply sit quietly and make something with our hands, for no reason other than the joy of making it. These hobbies have taught me that rest and creativity can coexist, that productivity doesn't always mean rushing, and that taking time to do something \"mindless\" is actually one of the most mindful things I can do for my mental health. If you're feeling overwhelmed, I encourage you to find your own meditative craft—something that lets your hands stay busy while your mind finds peace."
+    };
+
+    async function onConfigChange(config) {
+      document.getElementById('site-title-nav').textContent = config.site_title || defaultConfig.site_title;
+      document.getElementById('site-title').textContent = config.site_title || defaultConfig.site_title;
+      document.getElementById('welcome-text').textContent = config.welcome_text || defaultConfig.welcome_text;
+      document.getElementById('about-title').textContent = config.about_title || defaultConfig.about_title;
+      document.getElementById('about-text').textContent = config.about_text || defaultConfig.about_text;
+      document.getElementById('hobbies-title').textContent = config.hobbies_title || defaultConfig.hobbies_title;
+      document.getElementById('stress-title').textContent = config.stress_title || defaultConfig.stress_title;
+      document.getElementById('stress-text').textContent = config.stress_text || defaultConfig.stress_text;
+      document.getElementById('gallery-title').textContent = config.gallery_title || defaultConfig.gallery_title;
+      document.getElementById('final-title').textContent = config.final_title || defaultConfig.final_title;
+      document.getElementById('final-text').textContent = config.final_text || defaultConfig.final_text;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["site_title", config.site_title || defaultConfig.site_title],
+        ["welcome_text", config.welcome_text || defaultConfig.welcome_text],
+        ["about_title", config.about_title || defaultConfig.about_title],
+        ["about_text", config.about_text || defaultConfig.about_text],
+        ["hobbies_title", config.hobbies_title || defaultConfig.hobbies_title],
+        ["stress_title", config.stress_title || defaultConfig.stress_title],
+        ["stress_text", config.stress_text || defaultConfig.stress_text],
+        ["gallery_title", config.gallery_title || defaultConfig.gallery_title],
+        ["final_title", config.final_title || defaultConfig.final_title],
+        ["final_text", config.final_text || defaultConfig.final_text]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a668d3a6503e30c',t:'MTc2NDQ2NTkzNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
