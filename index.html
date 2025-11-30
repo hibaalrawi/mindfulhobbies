@@ -247,7 +247,32 @@
     .image-placeholder {
       width: 100%;
       height: 250px;
-      background: linear-gradient(135deg, #f9e6e6 0%, #e8dff5 100%);
+      background: linear-gradient(135deg, #f9e6e6<!-- Gallery Section -->
+<section id="gallery">
+  <h2 class="section-title" id="gallery-title">Gallery</h2>
+
+  <div class="gallery-grid">
+
+    <!-- FIRST IMAGE: KUROMI -->
+    <div class="gallery-item">
+      <img src="kuromi.jpg" alt="Kuromi Image" />
+    </div>
+
+    <!-- Placeholder images (you can replace these later) -->
+    <div class="gallery-item">
+      <img src="placeholder1.jpg" alt="Placeholder 1" />
+    </div>
+
+    <div class="gallery-item">
+      <img src="placeholder2.jpg" alt="Placeholder 2" />
+    </div>
+
+    <div class="gallery-item">
+      <img src="placeholder3.jpg" alt="Placeholder 3" />
+    </div>
+
+  </div>
+</section> 0%, #e8dff5 100%);
       border-radius: 20px;
       margin: 1.5rem 0;
       display: flex;
@@ -258,47 +283,6 @@
       border: 2px dashed #d4a5a5;
     }
 
-    /* Gallery Grid */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .gallery-item {
-      aspect-ratio: 1;
-      background: linear-gradient(135deg, #f9e6e6 0%, #e8dff5 50%, #d4e4e8 100%);
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #9b8b9b;
-      font-style: italic;
-      border: 2px dashed #d4a5a5;
-      transition: transform 0.3s;
-    }
-
-    .gallery-item:hover {
-      transform: translateY(-5px);
-    }
-
-    /* Decorative divider */
-    .divider {
-      text-align: center;
-      margin: 3rem 0;
-      position: relative;
-    }
-
-    .divider::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 50%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #d4a5a5, transparent);
-    }
 
     .divider-icon {
       display: inline-block;
