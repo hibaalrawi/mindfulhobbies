@@ -247,51 +247,7 @@
     .image-placeholder {
       width: 100%;
       height: 250px;
-      background: linear-gradient(135deg, #f9e6e6<!-- Gallery Section -->
-<section id="gallery">
-  <h2 class="section-title" id="gallery-title">Gallery</h2>
-
-  <div class="gallery-grid">
-
-    <!-- FIRST IMAGE: KUROMI -->
-    <div class="gallery-item">
-      <img src="kuromi.jpg" alt="Kuromi Image" />
-    </div>
-
-    <!-- Placeholder images (you can replace these later) -->
-    <div class="gallery-item">
-      <img src="placeholder1.jpg" alt="placeholder 1" />
-    </div>
-
-    <div class="gallery-item">
-      <img src="placeholder2.jpg" alt="Placeholder 2" />
-    </div>
-
-    <div class="gallery-item">
-      <img src="placeholder3.jpg" alt="Placeholder 3" />
-    </div>
-.gallery-item {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 2px solid #d4a5a5;
-  background: white;
-  transition: transform 0.3s ease;
-  aspect-ratio: 1;
-}
-
-.gallery-item:hover {
-  transform: translateY(-5px);
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* SHOWS FULL IMAGE */
-  display: block;
-}
-  </div>
-</section> 0%, #e8dff5 100%);
+      background: linear-gradient(135deg, #f9e6e6 0%, #e8dff5 100%);
       border-radius: 20px;
       margin: 1.5rem 0;
       display: flex;
@@ -302,6 +258,47 @@
       border: 2px dashed #d4a5a5;
     }
 
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #f9e6e6 0%, #e8dff5 50%, #d4e4e8 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9b8b9b;
+      font-style: italic;
+      border: 2px dashed #d4a5a5;
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Decorative divider */
+    .divider {
+      text-align: center;
+      margin: 3rem 0;
+      position: relative;
+    }
+
+    .divider::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #d4a5a5, transparent);
+    }
 
     .divider-icon {
       display: inline-block;
@@ -490,7 +487,7 @@
     <h2 class="section-title" id="gallery-title">Gallery</h2>
     <div class="gallery-grid">
      <div class="gallery-item">
-      Image 1
+      <img src="kuromi.jpg" alt="kuromi">
      </div>
      <div class="gallery-item">
       Image 2
@@ -520,92 +517,4 @@
    <section id="thoughts">
     <h2 class="section-title" id="final-title">Final Thoughts</h2>
     <div class="text-content">
-     <p id="final-text">In a world that constantly demands our attention, productivity, and perfection, these mindless hobbies have become my gentle rebellion. They remind me that not everything needs to be optimized, monetized, or shared on social media. Sometimes the most valuable thing we can do is simply sit quietly and make something with our hands, for no reason other than the joy of making it. These hobbies have taught me that rest and creativity can coexist, that productivity doesn't always mean rushing, and that taking time to do something "mindless" is actually one of the most mindful things I can do for my mental health. If you're feeling overwhelmed, I encourage you to find your own meditative craft—something that lets your hands stay busy while your mind finds peace.</p>
-    </div>
-   </section><!-- Contact Section -->
-   <section id="contact">
-    <h2 class="section-title">Contact &amp; Credits</h2>
-    <div class="contact-icons"><a href="mailto:example@email.com" class="contact-icon" aria-label="Email">✉️</a> <a href="#" class="contact-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">📷</a> <a href="#" class="contact-icon" aria-label="Pinterest" target="_blank" rel="noopener noreferrer">📌</a> <a href="#" class="contact-icon" aria-label="Portfolio" target="_blank" rel="noopener noreferrer">🎨</a>
-    </div>
-   </section>
-  </div>
-  <footer>
-   <p>Made with love and calm hands ✿ 2024</p>
-  </footer>
-  <script>
-    const defaultConfig = {
-      site_title: "Stress-Relief Hobbies I Do Mindlessly",
-      welcome_text: "A cozy collection of creative escapes that help me unwind, breathe, and find peace in the making.",
-      about_title: "About This Project",
-      about_text: "This website is a personal exploration of the hobbies that have become my sanctuary during stressful times. In our fast-paced world, finding moments of calm can feel impossible. But through these simple, repetitive creative activities, I've discovered a path to mindfulness and peace. Each hobby listed here requires minimal mental effort but offers maximum therapeutic benefit—allowing my mind to wander freely while my hands stay busy. This space documents my journey with these calming crafts and celebrates the beauty of doing something just for the sake of doing it, without pressure or perfection.",
-      hobbies_title: "My Stress-Relief Hobbies",
-      stress_title: "How These Hobbies Help With Stress",
-      stress_text: "These hobbies share a common thread: they're all repetitive, meditative, and require just enough focus to quiet an anxious mind without demanding intense concentration. When I'm stressed, my thoughts tend to spiral. These activities give my hands something to do and my mind something gentle to focus on, breaking the cycle of worry. The repetitive motions—placing diamonds, stringing beads, making stitches, filling spaces—create a rhythm that's almost hypnotic. In these moments, time seems to slow down. There are no deadlines, no pressure to create something perfect. I can make mistakes and fix them. I can work at my own pace. And most importantly, I can let my mind wander freely while my hands stay productively occupied, finding peace in the simple act of making something beautiful, one small piece at a time.",
-      gallery_title: "Gallery",
-      final_title: "Final Thoughts",
-      final_text: "In a world that constantly demands our attention, productivity, and perfection, these mindless hobbies have become my gentle rebellion. They remind me that not everything needs to be optimized, monetized, or shared on social media. Sometimes the most valuable thing we can do is simply sit quietly and make something with our hands, for no reason other than the joy of making it. These hobbies have taught me that rest and creativity can coexist, that productivity doesn't always mean rushing, and that taking time to do something \"mindless\" is actually one of the most mindful things I can do for my mental health. If you're feeling overwhelmed, I encourage you to find your own meditative craft—something that lets your hands stay busy while your mind finds peace."
-    };
-
-    async function onConfigChange(config) {
-      document.getElementById('site-title-nav').textContent = config.site_title || defaultConfig.site_title;
-      document.getElementById('site-title').textContent = config.site_title || defaultConfig.site_title;
-      document.getElementById('welcome-text').textContent = config.welcome_text || defaultConfig.welcome_text;
-      document.getElementById('about-title').textContent = config.about_title || defaultConfig.about_title;
-      document.getElementById('about-text').textContent = config.about_text || defaultConfig.about_text;
-      document.getElementById('hobbies-title').textContent = config.hobbies_title || defaultConfig.hobbies_title;
-      document.getElementById('stress-title').textContent = config.stress_title || defaultConfig.stress_title;
-      document.getElementById('stress-text').textContent = config.stress_text || defaultConfig.stress_text;
-      document.getElementById('gallery-title').textContent = config.gallery_title || defaultConfig.gallery_title;
-      document.getElementById('final-title').textContent = config.final_title || defaultConfig.final_title;
-      document.getElementById('final-text').textContent = config.final_text || defaultConfig.final_text;
-    }
-
-    function mapToCapabilities(config) {
-      return {
-        recolorables: [],
-        borderables: [],
-        fontEditable: undefined,
-        fontSizeable: undefined
-      };
-    }
-
-    function mapToEditPanelValues(config) {
-      return new Map([
-        ["site_title", config.site_title || defaultConfig.site_title],
-        ["welcome_text", config.welcome_text || defaultConfig.welcome_text],
-        ["about_title", config.about_title || defaultConfig.about_title],
-        ["about_text", config.about_text || defaultConfig.about_text],
-        ["hobbies_title", config.hobbies_title || defaultConfig.hobbies_title],
-        ["stress_title", config.stress_title || defaultConfig.stress_title],
-        ["stress_text", config.stress_text || defaultConfig.stress_text],
-        ["gallery_title", config.gallery_title || defaultConfig.gallery_title],
-        ["final_title", config.final_title || defaultConfig.final_title],
-        ["final_text", config.final_text || defaultConfig.final_text]
-      ]);
-    }
-
-    if (window.elementSdk) {
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange,
-        mapToCapabilities,
-        mapToEditPanelValues
-      });
-    }
-
-    // Smooth scrolling for navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a668d3a6503e30c',t:'MTc2NDQ2NTkzNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
+     <p id="final-text">In a world that constantly demands our attention, productivity, and perfection, these mindless hobbies have become my gentle rebellion. They remind me that not everything needs to be optimized, monetized, or shared on social media. Sometimes the most valuable thing we can do is simply sit quietly and make something with our hands, for no reason other than the joy of making it. These hobbies have taught me that rest and creativity can coexist, that productivity doesn't always mean rushing, and that taking time to do something "mindless" is actually one of the most mindful things I can do for my mental health. If you're feeling overwhelmed, I encourage you to find your own meditative craft—something that lets your hands stay busy while your mind finds peace.<
