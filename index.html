@@ -397,16 +397,24 @@
   color: #c35577;
   transform: scale(1.05);
 }
- ul {
-  list-style: "✿ " inside;
+ul {
+  list-style: none;
   margin-left: 1.5rem;
-  padding-left: 1.5rem;
+  padding-left: 1rem;
 }
 
-ol {
-  list-style: decimal;
-  margin-left: 1.5rem;
-  padding-left: 1.5rem;
+ul li {
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+ul li::before {
+  content: "✿";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #d4a5a5; /* optional, pretty */
+  font-size: 1rem;
 }
     @media (max-width: 768px) {
       .hero h1 {
