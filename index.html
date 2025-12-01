@@ -256,6 +256,20 @@
       color: #9b8b9b;
       font-style: italic;
       border: 2px dashed #d4a5a5;
+      /* ensure images inside stay contained */
+      overflow: hidden;
+    }
+
+    /* NEW: Ensure any image placed inside .image-placeholder fits the box */
+    .image-placeholder img,
+    .image-placeholder .contained-image {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      object-position: center;
     }
 
     /* Gallery Grid */
@@ -277,6 +291,14 @@
       font-style: italic;
       border: 2px dashed #d4a5a5;
       transition: transform 0.3s;
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .gallery-item:hover {
@@ -385,6 +407,10 @@
       .text-content {
         padding: 1.5rem;
       }
+
+      .image-placeholder {
+        height: 200px; /* slightly smaller on small screens */
+      }
     }
   </style>
   <style>@view-transition { navigation: auto; }</style>
@@ -394,7 +420,7 @@
  <body><!-- Navigation -->
   <nav>
    <div class="nav-content"><a href="#home" class="nav-brand" id="site-title-nav">Stress-Relief Hobbies</a>
-    <div class="nav-links"><a href="#home">Home</a> <a href="#about">About</a> <a href="#hobbies">Hobbies</a> <a href="#stress">Stress Relief</a> <a href="#gallery">Gallery</a> <a href="#thoughts">Thoughts</a> <a href="#contact">Contact</a>
+    <div class="nav-links"><a href="#home">Home</a> <a href="#about">About</a> <a href="#hobbies">Hobbies</a> <a href="#stress">Stress Relief</a> <a href="#gallery">Gallery</a> <a href="#thoughts">Tho[...]
     </div>
    </div>
   </nav><!-- Hero Section -->
@@ -410,7 +436,7 @@
    <section id="about">
     <h2 class="section-title" id="about-title">About This Project</h2>
     <div class="text-content">
-     <p id="about-text">This website is a personal exploration of the hobbies that have become my sanctuary during stressful times. In our fast-paced world, finding moments of calm can feel impossible. But through these simple, repetitive creative activities, I've discovered a path to mindfulness and peace. Each hobby listed here requires minimal mental effort but offers maximum therapeutic benefit—allowing my mind to wander freely while my hands stay busy. This space documents my journey with these calming crafts and celebrates the beauty of doing something just for the sake of doing it, without pressure or perfection.</p>
+     <p id="about-text">This website is a personal exploration of the hobbies that have become my sanctuary during stressful times. In our fast-paced world, finding moments of calm can feel impossible[...]
     </div>
    </section>
    <div class="divider"><span class="divider-icon">✿</span>
@@ -420,55 +446,56 @@
     <div class="hobby-grid"><!-- Diamond Painting -->
      <div class="hobby-card">
       <h3>💎 Diamond Painting</h3>
-      <p>Diamond painting has become my evening meditation. There's something incredibly soothing about the repetitive motion of picking up tiny resin diamonds with a special pen and placing them onto a sticky canvas according to a color-coded pattern. It's like paint-by-numbers meets cross-stitch meets mosaic art.</p>
+      <p>Diamond painting has become my evening meditation. There's something incredibly soothing about the repetitive motion of picking up tiny resin diamonds with a special pen and placing them onto[...]
       <div class="image-placeholder">
        Space for diamond painting images
       </div>
-      <p>What I love most about diamond painting is how it demands just enough attention to keep my anxious thoughts at bay, but not so much that it becomes mentally taxing. My hands move in a rhythm—pick, place, press—while I listen to podcasts or music. The satisfying snap of each diamond finding its place is oddly therapeutic.</p>
-      <p>I usually work on larger canvases over the course of several weeks. There's no rush, no deadline. Some nights I place a hundred diamonds, other nights a thousand. The project slowly reveals itself, shimmering section by shimmering section. When light hits the finished piece, it sparkles beautifully—a tangible reminder of all those quiet hours spent creating something with my own hands.</p>
+      <p>What I love most about diamond painting is how it demands just enough attention to keep my anxious thoughts at bay, but not so much that it becomes mentally taxing. My hands move in a rhythm�[...]
+      <p>I usually work on larger canvases over the course of several weeks. There's no rush, no deadline. Some nights I place a hundred diamonds, other nights a thousand. The project slowly reveals i[...]
       <div class="image-placeholder">
        Space for finished diamond art
       </div>
-      <p>The hobby also satisfies my need for organization and completion. Each color has its own numbered packet, and I love the process of sorting and storing them. Finishing a section feels like a small victory, and completing an entire canvas is immensely satisfying without being stressful.</p>
+      <p>The hobby also satisfies my need for organization and completion. Each color has its own numbered packet, and I love the process of sorting and storing them. Finishing a section feels like a [...]
      </div><!-- Bead Curtain Art -->
      <div class="hobby-card">
       <h3>✨ Bead Curtain Art</h3>
-      <p>Creating bead curtains is a hobby I stumbled into almost by accident, but it has become one of my favorite mindless creative outlets. The process involves stringing colorful beads onto thread or fishing line in patterns or gradients, then hanging them to create flowing, decorative curtains that catch the light beautifully.</p>
+      <p>Creating bead curtains is a hobby I stumbled into almost by accident, but it has become one of my favorite mindless creative outlets. The process involves stringing colorful beads onto thread[...]
       <div class="image-placeholder">
-       <img src="beadscurtainprogress.jpg" alt="Beads curtain progress" style="max-width:100%;height:auto;display:block;">
+       <!-- Updated image tag: lazy-load, cache-busted, constrained by CSS -->
+       <img src="beadscurtainprogress.jpg?v=2" alt="Beads curtain progress" class="contained-image" loading="lazy" width="800" height="420">
       </div>
-      <p>What makes this hobby particularly calming is the repetitive nature of stringing beads combined with the gentle creative decisions about color placement. I don't follow strict patterns—instead, I let intuition guide my color choices, creating gradients that flow from one shade to another or mixing colors in ways that feel right in the moment.</p>
-      <p>The tactile experience is wonderful. Each bead slides smoothly onto the string with a soft clicking sound. I can feel the weight of the strand growing in my hands as I work. There's something hypnotic about the rhythm: select a bead, thread it on, push it down, repeat. Hours can pass without me realizing it.</p>
+      <p>What makes this hobby particularly calming is the repetitive nature of stringing beads combined with the gentle creative decisions about color placement. I don't follow strict patterns—inst[...]
+      <p>The tactile experience is wonderful. Each bead slides smoothly onto the string with a soft clicking sound. I can feel the weight of the strand growing in my hands as I work. There's something[...]
       <div class="image-placeholder">
        Space for completed bead curtains
       </div>
-      <p>When hung in a doorway or window, bead curtains transform a space. They add color, texture, and movement. When a breeze passes through or someone walks by, they sway and chime gently. The way light filters through the beads creates beautiful color patterns on walls and floors. It's art that's both decorative and functional, and creating them helps me feel accomplished while staying completely relaxed.</p>
+      <p>When hung in a doorway or window, bead curtains transform a space. They add color, texture, and movement. When a breeze passes through or someone walks by, they sway and chime gently. The way[...]
      </div><!-- Crochet Canvas Art -->
      <div class="hobby-card">
       <h3>🧶 Crochet Canvas Art</h3>
-      <p>Crochet canvas art combines traditional crochet techniques with visual art. Instead of making scarves or blankets, I create textured wall hangings and decorative pieces by crocheting directly onto canvas frames or creating standalone crochet pieces that can be mounted and displayed.</p>
+      <p>Crochet canvas art combines traditional crochet techniques with visual art. Instead of making scarves or blankets, I create textured wall hangings and decorative pieces by crocheting directly[...]
       <div class="image-placeholder">
        Space for crochet canvas images
       </div>
-      <p>The beauty of this hobby lies in its forgiving nature. Unlike traditional art forms where mistakes can be difficult to fix, crochet is endlessly adjustable. If I don't like how something looks, I can simply unravel it and start again. There's no waste, no permanent errors—just yarn that can be reformed into infinite possibilities.</p>
-      <p>The rhythm of crochet is deeply meditative. My hands know the motions so well that I rarely need to look at what I'm doing. Loop the yarn, pull through, repeat. The hook becomes an extension of my fingers. I can crochet while watching movies, sitting in waiting rooms, or even during video calls. It keeps my hands busy and my mind calm.</p>
+      <p>The beauty of this hobby lies in its forgiving nature. Unlike traditional art forms where mistakes can be difficult to fix, crochet is endlessly adjustable. If I don't like how something look[...]
+      <p>The rhythm of crochet is deeply meditative. My hands know the motions so well that I rarely need to look at what I'm doing. Loop the yarn, pull through, repeat. The hook becomes an extension [...]
       <div class="image-placeholder">
        Space for crochet art pieces
       </div>
-      <p>I especially love experimenting with different textures and stitches. Some pieces are smooth and tight, others loose and flowing. I play with color gradients, mixing yarns to create ombre effects. The finished pieces have a handmade warmth that brings coziness to any space. Each stitch represents a moment of mindfulness, and the completed artwork is a collection of thousands of tiny meditative moments woven together.</p>
+      <p>I especially love experimenting with different textures and stitches. Some pieces are smooth and tight, others loose and flowing. I play with color gradients, mixing yarns to create ombre eff[...]
      </div><!-- Paint-By-Numbers -->
      <div class="hobby-card">
       <h3>🎨 Paint-By-Numbers</h3>
-      <p>Paint-by-numbers might seem childish to some, but for me, it's the perfect stress-free way to engage with painting without the pressure of creating something from scratch. Each kit comes with a pre-printed canvas marked with numbers, corresponding paints, and brushes. All I have to do is match numbers to colors and fill in the spaces.</p>
+      <p>Paint-by-numbers might seem childish to some, but for me, it's the perfect stress-free way to engage with painting without the pressure of creating something from scratch. Each kit comes with[...]
       <div class="image-placeholder">
        Space for paint-by-numbers in progress
       </div>
-      <p>What I love about this hobby is how it removes all creative decision-making. I don't have to think about composition, color theory, or technique. The artwork is already designed—I'm simply bringing it to life, one numbered section at a time. This makes it perfect for evenings when I want to be creative but my brain is too tired for original thought.</p>
-      <p>The process is wonderfully methodical. I typically work through the painting by color, completing all sections of one number before moving to the next. This creates an interesting transformation—at first, the painting looks like random colored patches, but gradually, as more sections are filled in, the image emerges like magic.</p>
+      <p>What I love about this hobby is how it removes all creative decision-making. I don't have to think about composition, color theory, or technique. The artwork is already designed—I'm simply [...]
+      <p>The process is wonderfully methodical. I typically work through the painting by color, completing all sections of one number before moving to the next. This creates an interesting transformat[...]
       <div class="image-placeholder">
        Space for completed paintings
       </div>
-      <p>There's something deeply satisfying about the precision required. Staying within the lines, making sure the coverage is even, blending edges where colors meet—these small technical challenges keep me focused without being stressful. When I finish a painting, I'm always amazed at how professional it looks. It's tangible proof that I can create beautiful art, even on days when I don't feel particularly creative or capable. Each completed canvas is a reminder that sometimes following simple instructions step by step can lead to something wonderful.</p>
+      <p>There's something deeply satisfying about the precision required. Staying within the lines, making sure the coverage is even, blending edges where colors meet—these small technical challeng[...]
      </div>
     </div>
    </section>
@@ -477,7 +504,7 @@
    <section id="stress">
     <h2 class="section-title" id="stress-title">How These Hobbies Help With Stress</h2>
     <div class="text-content">
-     <p id="stress-text">These hobbies share a common thread: they're all repetitive, meditative, and require just enough focus to quiet an anxious mind without demanding intense concentration. When I'm stressed, my thoughts tend to spiral. These activities give my hands something to do and my mind something gentle to focus on, breaking the cycle of worry. The repetitive motions—placing diamonds, stringing beads, making stitches, filling spaces—create a rhythm that's almost hypnotic. In these moments, time seems to slow down. There are no deadlines, no pressure to create something perfect. I can make mistakes and fix them. I can work at my own pace. And most importantly, I can let my mind wander freely while my hands stay productively occupied, finding peace in the simple act of making something beautiful, one small piece at a time.</p>
+     <p id="stress-text">These hobbies share a common thread: they're all repetitive, meditative, and require just enough focus to quiet an anxious mind without demanding intense concentration. When I[...]
     </div>
     <div class="quote-box">
      "Creativity is not about producing something for others to see. Sometimes it's just about giving your mind permission to rest while your hands remember how to play."
@@ -517,7 +544,7 @@
    <section id="thoughts">
     <h2 class="section-title" id="final-title">Final Thoughts</h2>
     <div class="text-content">
-     <p id="final-text">In a world that constantly demands our attention, productivity, and perfection, these mindless hobbies have become my gentle rebellion. They remind me that not everything needs to be optimized, monetized, or shared on social media. Sometimes the most valuable thing we can do is simply sit quietly and make something with our hands, for no reason other than the joy of making it. These hobbies have taught me that rest and creativity can coexist, that productivity doesn't always mean rushing, and that taking time to do something "mindless" is actually one of the most mindful things I can do for my mental health. If you're feeling overwhelmed, I encourage you to find your own meditative craft—something that lets your hands stay busy while your mind finds peace.>
+     <p id="final-text">In a world that constantly demands our attention, productivity, and perfection, these mindless hobbies have become my gentle rebellion. They remind me that not everything needs[...]
  };
 
     async function onConfigChange(config) {
@@ -581,5 +608,5 @@
       });
     });
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a668d3a6503e30c',t:'MTc2NDQ2NTkzNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a668d3a6503e30c',t:'MTc2NDQ2NTkzNC4wMD[...]
 </html>
